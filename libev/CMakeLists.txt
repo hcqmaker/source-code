@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 project(libev_test)
 
 #set binary tree type(output)
@@ -16,7 +16,7 @@ link_directories(${LOCAL_LIB_DIR})
 
 #find library of static and shared
 #find_library(EV_LIB_FILE names libev libevview  libevdocument paths /usr/lib/ /usr/local/lib/)
-find_library(EV_LIB_FILE names ev paths /usr/local/lib/)
+find_library(EV_LIB_FILE NAMES ev PATHS /usr/local/lib/)
 
 #set build type
 set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} -Wall)
