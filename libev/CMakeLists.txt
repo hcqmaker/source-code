@@ -28,9 +28,9 @@ set(CMAKE_C_FLAGS_RELEASE "$ENV{CFLAGS} -O3 -Wall")
 
 
 #project dir
-set(PROJECT_EV_DIR ${PROJECT_SOURCE_DIR}/src)
+set(PROJECT_EV_DIR ${PROJECT_SOURCE_DIR}/source/)
 set(TOOL_DIR ${PROJECT_SOURCE_DIR}/include/)
 
 #message cmake subdirectory
-add_subdirectory(src)
+add_subdirectory(source)
 add_subdirectory(test)
