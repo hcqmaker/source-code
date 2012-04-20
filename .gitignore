@@ -1,3 +1,4 @@
+./libev/build/*
 \.*\.swp
 tags
 .DS_Store
