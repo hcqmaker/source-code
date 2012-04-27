@@ -4,6 +4,7 @@
 #include <netinet/in.h>
 #include <cstring>
 #include <cstdio>
+#include <signal.h>
 
 #include "asyn_server.h"
 #include "nb_net_tool.h"
@@ -18,6 +19,10 @@ int main()
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     serv_addr.sin_port = htons(10026);
 
+    sigset_t     new_mask;
+    sigset_t     old_mask;
+    sigfillset(&new_mask);
+    pthread_sigmask(SIG_BLOCK, &new_mask, &old_mask);
     if (0 != bind(server, (struct sockaddr*)&serv_addr, sizeof(serv_addr)))
     {
         printf("error happen when use bind\n");
@@ -28,9 +33,14 @@ int main()
         printf("error happen when use listen\n");
     }
 
-    while (1)
-    {
-        printf("success\n");
-    }
+    sigset_t    wait_mask;
+    sigemptyset(&wait_mask);
+    sigaddset(&wait_mask, SIGINT);
+    sigaddset(&wait_mask, SIGQUIT);
+    sigaddset(&wait_mask, SIGTERM);
+    pthread_sigmask(SIG_BLOCK, &wait_mask, 0);
+    int flag = 0;
+    sigwait(&wait_mask, &flag);
+
     return 0;
 }
