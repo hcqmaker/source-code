@@ -21,3 +21,25 @@ io_loop::~io_loop()
     ev_loop_destroy(loop);
 }
 
+bool io_loop::run()
+{
+    return ev_run(loop, 0);
+}
+
+bool io_loop::stop()
+{
+    return ev_break(loop, EVBREAK_ALL);
+}
+
+bool io_service::add_service(const ev_io*  service)
+{
+    ev_io_start(loop, service);
+    return true;
+}
+
+bool io_service::del_service(const ev_io*  service)
+{
+    ev_io_start(loop, service);
+    return true;
+}
+

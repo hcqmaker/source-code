@@ -19,6 +19,7 @@
 #include <netdb.h>
 #include <ifaddrs.h>
 #include <vector>
+#include <fcntl.h>
 
 //#include <boost/noncopyable.hpp>
 
@@ -116,5 +117,15 @@ inline std::string nb_getifaddr_v4()
         return std::string();
     }    
 }
+
+//add by wuxiang
+int setnoblock(int fd)
+{
+    int flags = 0;
+    flags = fcntl(fd, F_GETFL);
+    flags = flags | O_NONBLOCK;
+    return fcntl(fd, F_SETFL, flags);
+}
+
 
 #endif /* _NB_NET_TOOL_H_ */

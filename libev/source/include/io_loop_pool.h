@@ -6,11 +6,16 @@
 class io_loop_pool: public singleton_base<io_loop_pool>
 {
     public:
+        io_loop_pool& instance();
+        io_loop&   get_io_loop();
+        bool  run();
+        bool  stop();
+
+    private:
         io_loop_pool(); 
         io_loop_pool(const std::size_t& size);
         ~io_loop_pool();
 
-        io_loop&   get_io_loop();
 
     private:
         std::size_t  m_size;

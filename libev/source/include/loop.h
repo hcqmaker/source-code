@@ -1,5 +1,6 @@
 #ifndef LOOP_H_
 #define LOOP_H_
+#include <ev.h>
 
 class io_loop
 {
@@ -7,6 +8,11 @@ class io_loop
         io_loop();
         io_loop(const unsigned size, const std::size_t*  array);
         ~io_loop();
+
+        bool run();
+        bool stop();
+        bool add_service(const ev_io*  service);
+        bool del_service(const ev_io*  service);
 
     private:
         //make it can not be copied
