@@ -1,5 +1,11 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H_
+#include <memory>
+#include <vector>
+#include <string>
+#include <stdlib.h>
+
+const char* PATH = "config.ini";
 
 class configuration
 {
@@ -19,6 +25,11 @@ private:
     void init_default_options();
 
     void load_config_file();
+
+	void analyse(const std::vector<std::string>&  vstr);
+
+	template<typename T_>
+		T_ strto(const std::string& strval);
 
 private:
     std::size_t      m_ev_loop_size;
