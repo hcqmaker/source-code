@@ -1,5 +1,8 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H_
+#include <string>
+
+const std::string PATH = "config.ini";
 
 class configuration
 {
