@@ -1,5 +1,6 @@
 #ifndef _IO_LOOP_POOL_H_
 #define _IO_LOOP_POOL_H_
+#include <vector>
 #include "loop.h"
 #include "singleton_base.h"
 
@@ -19,7 +20,7 @@ class io_loop_pool: public singleton_base<io_loop_pool>
 
     private:
         std::size_t  m_size;
-        std::vector<io_pool>   m_pool;
+        std::vector<io_loop>   m_pool;
 };
 
 #endif //_IO_LOOP_POOL_H_

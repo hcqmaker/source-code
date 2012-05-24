@@ -6,13 +6,13 @@ class io_loop
 {
     public:
         io_loop();
-        io_loop(const unsigned size, const std::size_t*  array);
+        io_loop(const unsigned size, const size_t*  arr);
         ~io_loop();
 
         bool run();
         bool stop();
-        bool add_service(const ev_io*  service);
-        bool del_service(const ev_io*  service);
+        bool add_service(ev_io*  service);
+        bool del_service(ev_io*  service);
 
     private:
         //make it can not be copied
@@ -20,7 +20,7 @@ class io_loop
         io_loop operator=(const io_loop&);
 
     private:
-        struct ev_loop* loop;
+        struct ev_loop* m_loop;
 };
 
 #endif //LOOP_H_

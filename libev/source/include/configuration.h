@@ -5,12 +5,12 @@
 #include <string>
 #include <stdlib.h>
 
-const char* PATH = "config.ini";
+const std::string PATH = "config.ini";
 
 class configuration
 {
 public:
-    configuration& instance();
+    static configuration& instance();
     void parse_option(const int ac, const char* argv[]);
     std::size_t  get_ev_loop_size();
     void dump();
@@ -27,9 +27,6 @@ private:
     void load_config_file();
 
 	void analyse(const std::vector<std::string>&  vstr);
-
-	template<typename T_>
-		T_ strto(const std::string& strval);
 
 private:
     std::size_t      m_ev_loop_size;

@@ -11,6 +11,7 @@
 
 #include "asyn_server.h"
 #include "nb_net_tool.h"
+#include "configuration.h"
 
 int main()
 {
