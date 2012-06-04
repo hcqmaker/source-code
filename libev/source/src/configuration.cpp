@@ -101,7 +101,7 @@ void configuration::analyse(const std::vector<std::string>&  vstr)
 			std::size_t i = 0;
 			for (; i < strtmp.size(); ++i)
 			{
-				if (strtmp[i] == '=')
+				if (strtmp[i] == '=' || i == strtmp.size() - 1)
 				{
 					break;
 				}

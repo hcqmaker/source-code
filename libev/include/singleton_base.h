@@ -22,11 +22,6 @@ private:
 
 static _object_create  obj;
 
-private:
-    singleton_base()
-    {
-    }
-
 public:
 
     static _T&  instance()
